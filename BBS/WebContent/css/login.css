@@ -1,0 +1,5 @@
+#loginTitle{text-align: center; margin-top: 15%}
+.inputRoom{width: 300px; margin: 0 auto;display: block;height: 35px;margin-top: 10px;  border: 1px solid #777777; border-radius: 0.5em; }
+#loginSubmit{background-color: #5592ff;color: white;font-weight: bold}
+.GenderBtn{width: 20%;margin: 0 auto;height:30px;}
+.GenderBtn>input{width: 50%;height: 30px;background-color: #5592ff;color: #ffffff; border-radius: 0.5em;display: block;float: left}

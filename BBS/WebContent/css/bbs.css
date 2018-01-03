@@ -1,0 +1,5 @@
+#bbs{margin-top:50px}
+#bbsTable{width: 80%;margin: 0 auto;text-align: center;border: 3px solid #dddddd;}
+#bbsTable th{width: 20%;height: 50px}
+#bbsTable td{width: 20%;background-color: #eeeeee;height: 35px}
+#writeBbs{text-decoration: none;background-color: #5a6aff;color: white;float:left;}

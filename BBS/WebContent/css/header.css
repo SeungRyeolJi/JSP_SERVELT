@@ -1,0 +1,9 @@
+*{padding: 0;margin: 0;box-sizing: border-box;}
+#navbar{ width: 100%;height: 100px}
+#navbar ul{list-style: none}
+#navbar>ul>li{line-height: 50px;margin: 25px;display: inline-block}
+#navbar p{color: #666666; font-weight:600; }
+#navbar #dropdown{float: right;height: 50px;overflow: hidden;position: absolute;right: 0;transform: translateX(-100%)}
+#navbar_brand{font-size: 18px;font-weight: bold}
+#navbar #dropdown:hover{height: 150px;transition:0.5s}
+#navbar a{text-decoration: none;color: #666666}
