@@ -1,5 +1,8 @@
 #bbs{margin-top:50px}
 #bbsTable{width: 80%;margin: 0 auto;text-align: center;border: 3px solid #dddddd;}
-#bbsTable th{width: 20%;height: 50px}
-#bbsTable td{width: 20%;background-color: #eeeeee;height: 35px}
+#bbsTable th{flex: 1;height: 50px}
+#bbsTable td{background-color: #eeeeee;height: 35px}
 #writeBbs{text-decoration: none;background-color: #5a6aff;color: white;float:left;}
+#bbsTitle{width: 40%;margin: 0 auto;height: 25px;text-align: center;line-height: 25px;font-size: 15px}
+#bbsContent{width: 80%;margin: 0 auto;line-height: 25px;font-size: 12px;height: 500px}
+#writing{width: 100px;float: right;margin-right: 10%}
