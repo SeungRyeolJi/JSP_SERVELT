@@ -14,7 +14,7 @@
 <body>
 <jsp:include page="header.jsp"/>
     <div id="bbs">
-  	<form method="post" action="wirteAction.jsp">
+  	<form method="post" action="writeAction.jsp">
         <table id="bbsTable">
         <thead>
             <tr id="tableHead">
@@ -23,10 +23,10 @@
             </thead>
             <tbody>
             <tr>
-                <td><input type="text" placeholder="글 제목" name="bbsTitle" maxlength="50"/></td>
+                <td><input type="text" placeholder="글 제목" name="bbsTitle" maxlength="50" id="bbsTitle"/></td>
            </tr>
            <tr>
-                <td><textarea placeholder="글 내용" name="bbsContent" maxlength="2048"></textarea></td>					            
+                <td><textarea placeholder="글 내용" name="bbsContent" maxlength="2048" id="bbsContent"></textarea></td>					            
            </tr>
            </tbody>
         </table>

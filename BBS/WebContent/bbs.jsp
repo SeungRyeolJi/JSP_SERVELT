@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="bbs.BbsDAO" %>
+<%@ page import="bbs.Bbs" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+	String userID = null;
+	if(session.getAttribute("userID") != null)
+		userID = (String) session.getAttribute("userID");
+	int pageNumber =1;
+	if(request.getParameter("pageNumber") != null){
+		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+	}
+%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,19 +30,42 @@
     <div id="bbs">
         
         <table id="bbsTable">
+        <thead>
             <tr id="tableHead">
                 <th>번호</th>
                 <th>제목</th>
                 <th>작성자</th>
                 <th>작성일</th>
             </tr>
+            </thead>
+            <tbody>
+            <%
+            	BbsDAO bbsDAO = new BbsDAO(); //에러
+            	ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+            	for(int i=0;i<list.size();i++){
+           	%>
             <tr>
-                <td>1</td>
-                <td>시험글</td>
-                <td>관리자</td>
-                <td>2018-01-02</td>
+                <td><%= list.get(i).getBbsID() %></td>
+                <td><a href="view.jsp?bbsID= <%=list.get(i).getBbsID()%>"><%=list.get(i).getBbsTitle() %></a></td>
+                <td><%= list.get(i).getUserID() %></td>
+                <td><%= list.get(i).getBbsDate().substring(11,13)+"시"+list.get(i).getBbsDate().substring(14,16)+"분"%></td>
             </tr>
+            <%
+            	}
+            %>
+            </tbody>
         </table>
+        <%
+        	if(pageNumber != 1 ){
+        %>
+        	<a href="bbs.jsp?pageNumber=<%=pageNumber - 1 %>" class="page-move" >이전</a>
+        <%
+        	} if(bbsDAO.nextPage(pageNumber+1)){
+        %>
+        	<a href="bbs.jsp?pageNumber=<%=pageNumber + 1 %>" class="page-move" >다음</a>
+        <%
+        	}
+        %>
     </div>
 </body>
 </html>

@@ -6,3 +6,5 @@
 #bbsTitle{width: 40%;margin: 0 auto;height: 25px;text-align: center;line-height: 25px;font-size: 15px}
 #bbsContent{width: 80%;margin: 0 auto;line-height: 25px;font-size: 12px;height: 500px}
 #writing{width: 100px;float: right;margin-right: 10%}
+a{text-decoration:none;color:black;}
+.page-move{float:left; width:60px; background:skyBlue;line-height:40px;text-align:center;border-radius:20%;}
