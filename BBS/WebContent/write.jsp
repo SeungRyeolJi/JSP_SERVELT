@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import ="java.io.PrintWriter" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,6 +13,18 @@
     <title>게시판 글쓰기</title>
 </head>
 <body>
+<%
+	String userID = null;
+	if(session.getAttribute("userID") != null)
+		userID = (String) session.getAttribute("userID");
+	if(userID == null){
+		PrintWriter script = response.getWriter();
+		script.print("<script>");
+		script.println("alert('로그인을 하십시오.')");
+		script.print("location.href='login.jsp'");
+		script.print("</script>");
+	}
+	%>
 <jsp:include page="header.jsp"/>
     <div id="bbs">
   	<form method="post" action="writeAction.jsp">

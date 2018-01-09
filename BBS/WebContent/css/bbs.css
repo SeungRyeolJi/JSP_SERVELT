@@ -3,8 +3,9 @@
 #bbsTable th{flex: 1;height: 50px}
 #bbsTable td{background-color: #eeeeee;height: 35px}
 #writeBbs{text-decoration: none;background-color: #5a6aff;color: white;float:left;}
-#bbsTitle{width: 40%;margin: 0 auto;height: 25px;text-align: center;line-height: 25px;font-size: 15px}
-#bbsContent{width: 80%;margin: 0 auto;line-height: 25px;font-size: 12px;height: 500px}
+#bbsTitle{width: 40%;margin: 0 auto;height: 25px;text-align: center;line-height: 25px;font-size: 20px}
+#bbsContent{width: 80%;margin: 0 auto;line-height: 25px;font-size: 12px;border: 3px solid #dddddd;height: 500px;font-size:20px;}
+#writerAndTime{width:80%;font-size:15px;}
 #writing{width: 100px;float: right;margin-right: 10%}
 a{text-decoration:none;color:black;}
-.page-move{float:left; width:60px; background:skyBlue;line-height:40px;text-align:center;border-radius:20%;}
+.btn{float:left; width:60px; background:skyBlue;line-height:40px;text-align:center;border-radius:20%;}

@@ -46,7 +46,8 @@
            	%>
             <tr>
                 <td><%= list.get(i).getBbsID() %></td>
-                <td><a href="view.jsp?bbsID= <%=list.get(i).getBbsID()%>"><%=list.get(i).getBbsTitle() %></a></td>
+             <!--    아래  %= 뒤에  공백이 있으면 안됨 공백도 포함 되어버림 -->
+                <td><a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>"><%=list.get(i).getBbsTitle() %></a></td>
                 <td><%= list.get(i).getUserID() %></td>
                 <td><%=list.get(i).getBbsDate().substring(0,11) + list.get(i).getBbsDate().substring(11,13)+"시"+list.get(i).getBbsDate().substring(14,16)+"분" %></td>
             </tr>
@@ -58,11 +59,11 @@
         <%
         	if(pageNumber != 1 ){
         %>
-        	<a href="bbs.jsp?pageNumber=<%=pageNumber - 1 %>" class="page-move" >이전</a>
+        	<a href="bbs.jsp?pageNumber=<%=pageNumber - 1 %>" class="btn" >이전</a>
         <%
         	} if(bbsDAO.nextPage(pageNumber+1)){
         %>
-        	<a href="bbs.jsp?pageNumber=<%=pageNumber + 1 %>" class="page-move" >다음</a>
+        	<a href="bbs.jsp?pageNumber=<%=pageNumber + 1 %>" class="btn" >다음</a>
         <%
         	}
         %>

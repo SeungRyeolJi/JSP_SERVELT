@@ -18,9 +18,9 @@
 	}
 	int bbsID  = 0;
 	if(request.getParameter("bbsID") != null){
-		System.out.println("에러가");
+		System.out.println(request.getParameter("bbsID") instanceof String);
+		System.out.println("공백을 주의하자..");
 		bbsID = Integer.parseInt(request.getParameter("bbsID"));
-		System.out.println("났나요?");
 	}
 	if(bbsID == 0){
 		PrintWriter script = response.getWriter();
@@ -29,9 +29,10 @@
 		script.println("history.back()");
 		script.println("</script>");
 	}
+	 
 	Bbs bbs = new BbsDAO().getBbs(bbsID);
 %>
-    <title>게시판 글쓰기</title>
+    <title>게시판 글보기</title>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -44,15 +45,24 @@
             </thead>
             <tbody>
             <tr>
-                <td id="bbsTitle">제목 : <%= bbs.getBbsTitle() %></td>
+                <td id="bbsTitle">제목 : <%= bbs.getBbsTitle().replaceAll(" ","&nbsp").replaceAll("<","&lt").replaceAll(">","&gt").replaceAll("\n","<br>") %></td>
            </tr>
            <tr>
-           		<td id="writerAndTime">작성자 : <%= bbs.getUserID()%> 작성시간  : <%= bbs.getBbsDate().substring(0, 10)+" "+bbs.getBbsDate().substring(11,13)+"시"+bbs.getBbsDate().substring(14,16)+"분"%></td>
+           		<td id="writerAndTime">작성자 : <%= bbs.getUserID().replaceAll(" ","&nbsp").replaceAll("<","&lt").replaceAll(">","&gt").replaceAll("\n","<br>")%> 작성시간  : <%= bbs.getBbsDate().substring(0, 10)+" "+bbs.getBbsDate().substring(11,13)+"시"+bbs.getBbsDate().substring(14,16)+"분"%></td>
            </tr>
            <tr>
-                <td id="bbsContent"><%= bbs.getBbsContent() %></td>					            
+                <td id="bbsContent"><%= bbs.getBbsContent().replaceAll(" ","&nbsp").replaceAll("<","&lt").replaceAll(">","&gt").replaceAll("\n","<br>") %></td>					            
            </tr>
            </tbody>
+           <a href="bbs.jsp" class="btn">목록</a>
+           <%
+           	if(userID != null && userID.equals(bbs.getUserID())){
+           %>
+          	<a href="update.jsp?bbsID=<%=bbsID%>"class="btn">수정</a>
+          	<a href="deleteAction.jsp" class="btn">삭제</a>
+           <%
+           	}
+           %>
         </table>
     </div>
 </body>
