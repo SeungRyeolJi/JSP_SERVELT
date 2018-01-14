@@ -147,13 +147,13 @@ public class BbsDAO {
 		return null;//db오류
 	}
 	
-	public int update(int bbsID,String bbsTitle,String bbsCotent) {
-		String SQL ="UPDATE bbs SET bbsTitle = ?, bbsCotent = ?, WhERE bbsID = ?";
+	public int update(int bbsID,String bbsTitle,String bbsContent) {
+		String SQL ="UPDATE bbs SET bbsTitle = ?, bbsContent = ? WHERE bbsID = ?";
 		//가장 내림차순으로 마지막을 가져오게 
 		try {
 			PreparedStatement pstmt =conn.prepareStatement(SQL);
 			pstmt.setString(1, bbsTitle);
-			pstmt.setString(2, bbsCotent);
+			pstmt.setString(2, bbsContent);
 			pstmt.setInt(3, bbsID);
 			return pstmt.executeUpdate();
 			//executeUpdate는 insert, delete, update등 데이터를 다루는 것을 할 때 사용(저장같은?)
@@ -163,5 +163,21 @@ public class BbsDAO {
 			e.printStackTrace();
 		}
 		return -1;//db오류
+	}
+	
+	public int delete (int bbsID) {
+			String SQL ="UPDATE bbs SET bbsAvailable =0 WHERE bbsID = ?";
+			//가장 내림차순으로 마지막을 가져오게 
+			try {
+				PreparedStatement pstmt =conn.prepareStatement(SQL);
+				pstmt.setInt(1, bbsID);
+				return pstmt.executeUpdate(); // 0 이상이 반환 됨
+				//executeUpdate는 insert, delete, update등 데이터를 다루는 것을 할 때 사용(저장같은?)
+				//executeQuery는 쿼리 결과를 resultSet에 저장하기 위한 것 select 때 사용
+				//execute는 모든 쿼를 사용 가능(ddl(정의) ,dml(조작) ,dcl(컨트롤))
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -1;//db오류
 	}
 }

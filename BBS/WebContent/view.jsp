@@ -59,7 +59,7 @@
            	if(userID != null && userID.equals(bbs.getUserID())){
            %>
           	<a href="update.jsp?bbsID=<%=bbsID%>"class="btn">수정</a>
-          	<a href="deleteAction.jsp" class="btn">삭제</a>
+          	<a href="deleteAction.jsp?bbsID=<%=bbsID%>" class="btn">삭제</a>
            <%
            	}
            %>

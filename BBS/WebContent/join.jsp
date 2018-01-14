@@ -22,7 +22,7 @@
     	 <input type="button" name="userGender" autocomplete="off" value="여자" checked>
     </div>	
     <input type="email" class="inputRoom"  placeholder="이메일" name="userEmail" maxlength="20">
-    <input type="submit"value="로그인" class="inputRoom" id="loginSubmit">
+    <input type="submit"value="회원가입" class="inputRoom" id="loginSubmit">
    </form>
 </body>
 </html>
