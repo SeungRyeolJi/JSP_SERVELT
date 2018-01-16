@@ -11,6 +11,6 @@
     <title>메인</title>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="header.jsp" flush="true"/>
 </body>
 </html>

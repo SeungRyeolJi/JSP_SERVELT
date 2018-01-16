@@ -22,6 +22,7 @@
 			String userID = null;//세션값
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
+					
 		}
 		if(userID != null){
 			PrintWriter script = response.getWriter();
