@@ -1,0 +1,27 @@
+exec dbms_xdb.sethttpport(8079);
+conn system/oracle as sysdba;
+
+
+create table comment_list(
+ idx int,
+ writer varchar(255),
+ content varchar(255),
+ reg_date timestamp,
+ primary key(idx)
+);
+--table create 권한부여
+grant create table to system;
+
+--sequence create 권한부여
+grant create sequence to system;
+
+--crud 권한 부여
+grant insert,update,delete,select on comment_list to system;
+
+--sequence 생성
+create sequence comment_seq start with 1 increment by 1 minvalue 1 cache 10;
+
+--sequence에 대한 권한 부여
+grant alter, select on comment_seq to system;
+
+commit;
