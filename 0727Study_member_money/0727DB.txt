@@ -1,0 +1,51 @@
+conn system/1111 as sysdba;
+drop table member_tbl_02;
+drop table money_tbl_02;
+commit;
+
+--사용자 system에 권한 부여 
+--varcahr1은 없나요?
+grant create table,create sequence to system;
+
+--회원 정보
+create table member_tbl_02(
+custno number(6), --회원번호
+custname varchar2(20), --이름
+phone varchar2(13), --연락처
+address varchar2(60), --주소
+joindate date, --등록일
+grad char(1), --등급,거주지
+city char(2), --기본키
+primary key(custno)
+);
+
+--권한부여 
+grant insert,update,delete,select on member_tbl_02 to system;
+
+--시퀀스 추가
+create sequence member_seq
+start with 10000
+increment by 1
+minvalue 10000
+cache 10; --속도 증가
+
+--시퀀스 권한 부여
+grant alter, select on member_seq to system;
+
+--회원 매출 정보 명세서
+create table money_tbl_02(
+custno number(6), --고객번호
+salenol number(8), --판매번호
+pcost number(8), --단가
+amount number(4), --수량
+price number(8), --가격
+pcode varchar2(4), --상품코드
+sdate date, --판매일자
+primary key(custno, salenol)
+);
+
+grant insert,update,delete,select on money_tbl_02 to system;
+
+--잊지 마길
+commit;
+
