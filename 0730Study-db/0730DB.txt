@@ -1,0 +1,58 @@
+create table reservation_tbl(
+	lentno varchar2(6) ,
+	custname varchar2(20),
+	bookno varchar2(3),
+	outdate date,
+	indate date,
+	status char(1),
+	primary key(lentno)
+);
+
+grant delete, update ,select ,insert on reservation_tbl to system;
+
+create table bookinfo_tbl(
+	bookno number(4),
+	author char(20),
+	bookname char(20),
+	primary key(bookno)
+);
+
+--crud
+grant insert, select, update, delete on bookinfo_tbl to system;
+
+insert into sys.reservation_tbl values('1','김한국','101','20171201','','1');
+insert into sys.reservation_tbl values('2','진선미','102','20171204','20171206','2');
+insert into sys.reservation_tbl values('3','장소미','201','20171001','','1');
+insert into sys.reservation_tbl values('4','최소망','103','20171109','','1');
+insert into sys.reservation_tbl values('5','이동국','301','20171224','20171225','2');
+insert into sys.reservation_tbl values('6','이소라','105','20171208','20171211','2');
+
+insert into sys.bookinfo_tbl values('101','박작가','시스템분석');
+insert into sys.bookinfo_tbl values('102','김작가','전산개론');
+insert into sys.bookinfo_tbl values('103','이작가','마케팅개론');
+insert into sys.bookinfo_tbl values('105','황작가','사회학');
+insert into sys.bookinfo_tbl values('201','최작가','역사학');
+insert into sys.bookinfo_tbl values('301','오작가','전산영어');
+
+SELECT rt.lentno as 대출번호, 
+rt.custname as 대출자,
+bt.bookname as 도서명, 
+to_char( rt.outdate, 'yyyy-mm-dd')as 대출일,
+to_char( rt.indate, 'yyyy-mm-dd')as 반납일
+FROM reservation_tbl rt
+JOIN   bookinfo_tbl bt
+on rt.bookno = bt.bookno
+order by rt.lentno asc;
+
+create table custom_01(	
+	p_id varchar2(10) primary key,
+	p_pw varchar2(10),
+	c_name varchar2(20),
+	c_email varchar2(20),
+	c_tel varchar (14)
+);
+
+grant insert, update, delete, select on custom_01 to system;
+
+insert into custom_01 values('bbb','1234','이화원','a@a.a','010-0000-0000');
+insert into custom_01 values('aaa','1234','김화원','a@a.a','010-000-0000');
