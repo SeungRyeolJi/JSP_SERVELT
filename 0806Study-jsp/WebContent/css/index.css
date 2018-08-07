@@ -1,6 +1,19 @@
-@charset "UTF-8";
 *{margin:  0 ; padding: 0}
 body{width: 90%; margin: 0 auto;}
+a{text-decoration: none;color: #333}
 .headerBox, .footerBox{width: 100%; height: 50px; text-align: center;line-height: 50px;}
 .content table{width: 80%; margin:0 auto;text-align: center;margin-top: 30px}
 .content button{width: 70px; height: 30px;margin:30px 50px 30px 0;left: 70%;position: relative;}
+
+body>fieldset{margin-top: 10px}
+fieldset>fieldset:nth-child(1){margin-top:30px }
+fieldset>fieldset{width: 90%; margin: 5px auto; }
+.buttonBox{left:70%;position: relative;margin: 15px 20px 30px 0;}
+.buttonBox button{width: 60px}
+.write{padding: 10px}
+h2{margin: 15px; left: 20%; position: relative;}
+.writeComplete{padding: 10px}
+.bbsWrite{border: 1px solid black;margin:0 auto; width: 80%;margin-bottom: 30px;}
+.bbsWrite tr>td{text-align: center;}
+.bbsWrite input{width: 80%}
+.bbsWrite textarea{width: 80%}

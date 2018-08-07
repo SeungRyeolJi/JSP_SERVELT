@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="header.jsp"%>
 <%
-	sql = "select * from board_tbl order by idx desc";
+	sql = "select * from sys.board_tbl order by idx asc";
 	res = conn.prepareStatement(sql).executeQuery();
 	int idx;
 	String writer,subject,content,date;
@@ -30,14 +30,14 @@
 			date = res.getString("date");
 	%>
       <tr>
-        <td><%= idx %></td>
+        <td><a href="./view.jsp?idx=<%=idx%>"><%= idx %></a></td>
         <td><%= writer %></td>
-        <td><%= subject %></td>
+        <td><a href="./view.jsp?idx=<%=idx%>"><%= subject %></a></td>
         <td><%= date %></td>
       </tr>
      <%} %>
     </table>
-  <button type="button" name="writeButton" class="writeButton">작성</button>
+  <a href="write.jsp"><button type="button"">작성</button></a>
   </fieldset>
   </article>
 
