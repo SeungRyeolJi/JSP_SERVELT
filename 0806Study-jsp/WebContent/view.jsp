@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <%
-	sql = "select * from sys.board_tbl where idx = "+request.getParameter("idx");
+	String idx = request.getParameter("idx");
+	sql = "select * from sys.board_tbl where idx = "+idx;
 	res = conn.prepareStatement(sql).executeQuery();
 	res.next();
 	String subject,writer,content,date;
@@ -18,9 +19,9 @@
 
         <colgroup>
           <col width="25%">
-          <col widt="25%">
           <col width="25%">
-          <col widt="25%">
+          <col width="25%">
+          <col width="25%">
     		</colgroup>
 
 
@@ -40,31 +41,43 @@
 
       </table>
 
-      <p>내용 : <%=content %> </p>
+      <p>내용 : <%=content.toString().replaceAll("<script>","하지마") %> </p>
 
     </fieldset>
 
     <fieldset>
       <table class="comment">
         <colgroup>
+             <col width="20%">
+          <col width="35%">
+          <col width="35%">
           <col width="10%">
-          <col widt="40%">
-          <col width="40%">
-          <col widt="10%">
         </colgroup>
 
         <tr><td>댓글 조회</td></tr>
+        <%	
+        	sql = "select * from sys.comment_tbl where bidx = "+ idx;
+        	res = conn.prepareStatement(sql).executeQuery();
+        	while(res.next()){
+        %>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>삭제</td>
+          <td><%=res.getString("writer")%></td>
+          <td><%=res.getString("content").toString().replaceAll("<script>","하지마")%></td>
+          <td><%=res.getTimestamp("date")%></td>
+          <td><a href="action.jsp?action=comment_delete&idx=<%=res.getInt("idx")%>">삭제</a></td>
         </tr>
+        <%
+        	break;	
+        	}
+        %>
       </table>
     </fieldset>
 
     <fieldset>
-        <form class="writeComplete" action="index.html" method="post" class="write">
+    
+        <form action="action.jsp" method="post">
+          <input type="hidden" name="idx" value="<%=idx%>">
+          <input type="hidden" name="action" value="comment">
           <input type="text" name="comment_value">
           <button type="submit">작성완료</button>
         </form>
@@ -72,8 +85,8 @@
 
       <div class="buttonBox">
         <a href="index.jsp"><button>목록</button></a>
-        <a href="update.jsp?idx=<%=request.getParameter("idx")%>"><button>수정</button></a>
-        <a href="action.jsp?action=delete"><button>삭제</buttno></a>
+        <a href="update.jsp?idx=<%=idx%>"><button>수정</button></a>
+        <a href="action.jsp?action=board_delete&idx=<%=idx%>"><button>삭제</buttno></a>
       </div>
   </fieldset>
 <%@ include file="footer.jsp"%>

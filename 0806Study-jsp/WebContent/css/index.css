@@ -17,3 +17,4 @@ h2{margin: 15px; left: 20%; position: relative;}
 .bbsWrite tr>td{text-align: center;}
 .bbsWrite input{width: 80%}
 .bbsWrite textarea{width: 80%}
+.bbsView tr th:nth-child(1){text-align:left}
