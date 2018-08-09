@@ -1,0 +1,11 @@
+
+*{font-family: arial, sans-serif;}
+.wrap{width: 90; margin: 0 auto;}
+fieldset{margin: 10px}
+h3,h4{text-align: center;}
+.content h4{margin-top: 5px;margin-bottom: 15px;text-align: left;}
+.content table{border: 1px solid black;width: 95%;margin:  0 auto;text-align:center;   border-collapse: collapse;}
+.content th:nth-child(even) {background-color: #dddddd;padding: 10px}
+.content td{padding: 5px}
+.content button{margin-top: 15px;left: 80%;position: relative;width: 100px;height: 30px}
+.footer h4{margin: 0;padding: 7px}

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/index.css">
+  <title>Document</title>
+</head>
+<body>
+    <div class="content2">
+       <h3>교과목 추가</h3>
+       <form action="action.jsp">
+         <fieldset>
+        <table>
+            <tr>
+              <th>교과목 코드</th>
+              <th><input type="text" name="id"></th>
+            </tr>
+            <tr>
+              <td>과목명</td>
+              <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+              <td>담당강사</td>
+              <td><select name="lecturer">
+                <!-- jsp -->
+              </select>
+              </td>
+            </tr>
+            <tr>
+              <td>학점</td>
+              <td><input type="text" name="credit"></td>
+            </tr>
+            <tr>
+              <td>요일</td>
+              <td>
+                <input type="radio" name="week" value="1"><p>월</p>
+                <input type="radio" name="week" value="2"><p>회</p>
+                <input type="radio" name="week" value="3"><p>수</p>
+                <input type="radio" name="week" value="4"><p>목</p>
+                <input type="radio" name="week" value="5"><p>금</p>
+                <input type="radio" name="week" value="6"><p>토</p>
+              </td>
+            </tr>
+            <tr>
+              <td>시작</td>
+              <td><input type="time" name="start_hour"></td>
+            </tr>
+            <tr>
+              <td>종료</td>
+              <td><input type="time" name="end_end"></td>
+            </tr>
+        </table>
+          <button type="button" onclick="location.href='index.jsp'">목록</button>
+          <input type="submit" value="완료">
+        </fieldset>
+        </form>
+
+    </div>
+</body>
+</html>
