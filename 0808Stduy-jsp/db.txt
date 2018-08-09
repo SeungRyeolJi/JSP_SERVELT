@@ -1,0 +1,44 @@
+create table course_tbl(
+ 	id varchar2(5) ,
+	name varchar2(40),
+	credit number(6),
+	lecturer varchar2(10),
+	week number(2),
+	start_hour number(4),
+	end_end number(4),
+	primary key(id)
+);  
+
+grant insert, select, update, delete on course_tbl to system;
+    
+create table lecturer_tbl(
+	idx number(6) ,
+	name varchar2(10),
+	major varchar2(20),
+	field varchar2(20) ,
+	primary key(idx)
+);
+
+grant insert, select, update, delete on lecturer_tbl to system;
+
+commit;
+
+create sequence lecturer_seq
+start with 1
+increment by 1
+minvalue 1
+cache 10;
+
+create sequence  coures_seq
+start with 10001
+increment by 1
+minvalue 10001
+cache 10;
+
+commit;
+
+grant alter,select on coures_seq
+
+insert into sys.course_tbl values('10001', '프로그래밍', '2', '1', '1', '0900', '1100');
+insert into sys.lecturer_tbl values(lecturer_seq.nextval,'김교수','소프트웨어공학','알고리즘');
+
